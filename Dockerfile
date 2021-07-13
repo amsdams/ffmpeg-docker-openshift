@@ -2,7 +2,7 @@ FROM centos:8
 USER root
 
 # Install epel-release
-RUN dnf install epel-release dnf-utils 
+RUN dnf -v install epel-release dnf-utils 
 RUN yum-config-manager --set-enabled PowerTools 
 RUN yum-config-manager --add-repo=https://negativo17.org/repos/epel-multimedia.repo 
 RUN dnf install ffmpeg 
