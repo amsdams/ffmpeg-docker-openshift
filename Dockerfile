@@ -1,16 +1,16 @@
-FROM centos:7
+FROM centos:8
 USER root
 
 # Install epel-release
-RUN sudo dnf install epel-release dnf-utils \
-    sudo yum-config-manager --set-enabled PowerTools \
-    sudo yum-config-manager --add-repo=https://negativo17.org/repos/epel-multimedia.repo \
-    sudo dnf install ffmpeg 
+RUN  dnf install epel-release dnf-utils \
+     yum-config-manager --set-enabled PowerTools \
+     yum-config-manager --add-repo=https://negativo17.org/repos/epel-multimedia.repo \
+     dnf install ffmpeg 
 
 
 
 # Install ffmpeg ffmpeg-devel
-RUN sudo dnf install ffmpeg && \
+RUN  dnf install ffmpeg && \
     ffmpeg -version
 
 ADD pod-daemon.sh /tmp/pod-daemon.sh
